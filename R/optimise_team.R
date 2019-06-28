@@ -60,14 +60,40 @@
 #' @export
 
 optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, gk =1, def = 3, mid = 4, fwd = 3, gameweek_range = F, min_games = 1, custom_df = F) {
-  df <- fetch_player_data(gameweek_range)
 
-  df <- df %>%
-    filter(games >= min_games)
+  # checks
+  if(!objective %in% c('points', 'ppg')){
+    stop('objective must be one of: "points" or "ppg"')
+  } else if(gameweek_range != F) {
+    warning('setting gameweek_range currently has no effect as gameweek history is unavailable for this season.')
+  } else if(bank < 800) {
+    warning('Are you sure that you have entered the bank parameter correctly? For 100.0m you should enter bank = 1000')
+  } else if(!gk %in% c(0:2)){
+    warning('Check that you have entered the gk parameter correctly. It should be 0, 1 or 2')
+  } else if(!def %in% c(0:5)){
+    warning('Check that you have entered the def parameter correctly. It should be between 0 and 5')
+  } else if(!mid %in% c(0:5)){
+    warning('Check that you have entered the mid parameter correctly.  It should be between 0 and 5')
+  } else if(!fwd %in% c(0:3)){
+    warning('Check that you have entered the fwd parameter correctly. It should between 0 and 3')
+  }
 
-  if(!is.logical(custom_df)) {
+  if(objective == 'ppg' & min_games %in% c(0,1)){
+    warning('When using objective = "ppg" you may want to set the min_games parameter.')
+  }
+
+  if(is.logical(custom_df)) {
+    df <- fetch_player_data(gameweek_range)
+
+    df <- df %>%
+      filter(games >= min_games)
+  } else{
+    if(!is.data.frame(df)){
+      stop('df should be a data.frame if specified. Else set to df = FALSE.')
+    }
     df <- custom_df
   }
+
 
   # create the constraints
   n_goalkeepers <- gk
