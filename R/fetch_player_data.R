@@ -27,9 +27,12 @@ fetch_player_data <- local({
     fpl_api <-  jsonlite::fromJSON("https://fantasy.premierleague.com/api/bootstrap-static")
     player_details <- fpl_api$elements
     position_names <- fpl_api$element_types
+    teams <- fpl_api$teams
 
     df <- player_details %>% left_join(position_names, by = c('element_type' = 'id'))  %>%
+      left_join(teams, by = c('team' = 'id')) %>%
       mutate(points_per_game = as.numeric(points_per_game),
+             vapm = (points_per_game - 2) / now_cost,
              total_points = as.numeric(total_points),
              games = round(total_points / points_per_game,0))
 

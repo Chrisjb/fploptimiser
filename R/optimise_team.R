@@ -2,7 +2,7 @@
 #'
 #' Solves the optimisation problem for a FPL team given a budget constraint, amount of players, and objective function.
 #'
-#' @param objective takes value 'points' or 'ppg' indicating whether we want to maximise the total points obtained over the course of the dataset (season) or the points per game played.
+#' @param objective takes value 'points', 'ppg' or 'vapm', indicating whether we want to maximise the total points obtained over the course of the dataset (season), the points per game played, or value added per million.
 #' @param bank takes a numeric value indicating the budget available for our full team (team + bench). Enter the value in four digits so 100.0m would be 1000 - the default for the season start.
 #' @param bench_value before running the optimiser you'll want to have chosen your bench already (there is little point in optimising players on your bench as they will not earn you points a lot of the time). Enter the value of your chosen bench in four digits as per the bank parameter.
 #' @param gk number of goalkeepers we want to pick - most likely one. If rotating keepers, it can be useful to pick your goalkeepers and add both to your bench value, then set gk = 0. This prevents the goalkeeper being optimised as if it were in goal as set and forget.
@@ -62,8 +62,8 @@
 optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, gk =1, def = 3, mid = 4, fwd = 3, gameweek_range = F, min_games = 1, custom_df = F) {
 
   # checks
-  if(!objective %in% c('points', 'ppg')){
-    stop('objective must be one of: "points" or "ppg"')
+  if(!objective %in% c('points', 'ppg', 'vapm')){
+    stop('objective must be one of: "points", "ppg" or "vapm"')
   } else if(gameweek_range != F) {
     warning('setting gameweek_range currently has no effect as gameweek history is unavailable for this season.')
   } else if(bank < 800) {
@@ -122,6 +122,8 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
     obj_fun <- df$total_points
   } else if(objective == 'ppg'){
     obj_fun <- df$points_per_game
+  } else if(objective = 'vapm') {
+    obj_fun <- df$vapm
   }
 
 
