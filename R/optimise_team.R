@@ -122,7 +122,7 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
     obj_fun <- df$total_points
   } else if(objective == 'ppg'){
     obj_fun <- df$points_per_game
-  } else if(objective = 'vapm') {
+  } else if(objective == 'vapm') {
     obj_fun <- df$vapm
   }
 

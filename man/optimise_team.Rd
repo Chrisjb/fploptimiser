@@ -9,7 +9,7 @@ optimise_team(objective = "points", bank = 1000, bench_value = 170,
   min_games = 1, custom_df = F)
 }
 \arguments{
-\item{objective}{takes value 'points' or 'ppg' indicating whether we want to maximise the total points obtained over the course of the dataset (season) or the points per game played.}
+\item{objective}{takes value 'points', 'ppg' or 'vapm', indicating whether we want to maximise the total points obtained over the course of the dataset (season), the points per game played, or value added per million.}
 
 \item{bank}{takes a numeric value indicating the budget available for our full team (team + bench). Enter the value in four digits so 100.0m would be 1000 - the default for the season start.}
 
