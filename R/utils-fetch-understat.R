@@ -1,0 +1,22 @@
+#' utility function to fetch data for players of a given team from understat
+
+fetch_understat_data <- function(team = 'Arsenal') {
+  understat <- xml2::read_html(paste0('https://understat.com/team/',team,'/2018'))
+
+
+  understat_dat <- understat %>% rvest::html_nodes('script') %>%
+    as.character() %>%
+    stringr::str_subset('playersData') %>%
+    stringi::stri_unescape_unicode()  %>%
+    stringr::str_extract('\\[.+\\]') %>%
+    jsonlite::fromJSON(flatten = T) %>%
+    select(player_name, understat_games = games, understat_minutes = time,
+           understat_goals = goals, xG, xA, understat_assists = assists, understat_shots = shots,
+           understat_key_passes = key_passes, understat_yellow = yellow_cards, understat_red = red_cards,
+           npg, npxG)
+
+
+
+
+  return(understat_dat)
+}

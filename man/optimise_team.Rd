@@ -6,7 +6,7 @@
 \usage{
 optimise_team(objective = "points", bank = 1000, bench_value = 170,
   gk = 1, def = 3, mid = 4, fwd = 3, gameweek_range = F,
-  min_games = 1, custom_df = F)
+  min_games = 1, custom_df = F, expected_points_adjust = F)
 }
 \arguments{
 \item{objective}{takes value 'points', 'ppg' or 'vapm', indicating whether we want to maximise the total points obtained over the course of the dataset (season), the points per game played, or value added per million.}
@@ -28,6 +28,8 @@ optimise_team(objective = "points", bank = 1000, bench_value = 170,
 \item{min_games}{the minimum number of games a player must have played to be considered for selection. This should be set when the objective function is 'ppg' so that players with high points per game but with relatively few games played are avoided.}
 
 \item{custom_df}{defaults to FALSE. If you want to make adjustments to the player data before optimising (eg. you want to exclude certain players from consideration) you can use the fetch_player_data() function and update the resulting dataset yourself. This dataset can be passed as the custom_df parameter.}
+
+\item{expected_points_adjust}{defaults to FALSE. Should we adjust points and points per game for the xA / xG? Data from understat.}
 }
 \value{
 a data.frame of optimised solution.
@@ -70,8 +72,15 @@ df[df$id == 410,]$total_points <- df[df$id == 410,]$total_points - df[df$id == 4
 df[df$id == 410,]$points_per_game <- df[df$id == 410,]$total_points / df[df$id == 410,]$games
 
 # RUN OPTIMISATION WITH CUSTOM DATA (using custom_df = df option)
-result <- optimise_team(objective = 'ppg', custom_df = df, bench_value = 170, gk = 1, def = 3, mid = 4, fwd = 3)
+result <- optimise_team(objective = 'ppg', custom_df = df, bench_value = 175, gk = 1, def = 4, mid = 4, fwd = 2, min_games = 14)
 sum(result$points_per_game)
+
+
+# RUN WITH expected goals / assists
+result <- optimise_team(objective = 'ppg', custom_df = df, bench_value = 175, gk = 1, def = 4, mid = 4, fwd = 2, min_games = 14, expected_points_adjust = T)
+sum(result$points_per_game)
+
+
 
 
 }
