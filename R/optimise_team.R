@@ -12,7 +12,7 @@
 #' @param gameweek_range numeric vector of the gameweeks to include in the data. This is not available pre-season and defaults to FALSE including all historic data for the past season.
 #' @param min_games the minimum number of games a player must have played to be considered for selection. This should be set when the objective function is 'ppg' so that players with high points per game but with relatively few games played are avoided.
 #' @param custom_df defaults to FALSE. If you want to make adjustments to the player data before optimising (eg. you want to exclude certain players from consideration) you can use the fetch_player_data() function and update the resulting dataset yourself. This dataset can be passed as the custom_df parameter.
-#' @param expected_points_adjust defaults to FALSE. Should we adjust points and points per game for the xA / xG? Data from understat.
+#' @param expected_points_adjust defaults to FALSE. Should we adjust points and points per game for the xA / xG? Data comes from understat.
 #' @return a data.frame of optimised solution.
 #'
 #' @import dplyr

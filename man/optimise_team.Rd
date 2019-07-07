@@ -29,7 +29,7 @@ optimise_team(objective = "points", bank = 1000, bench_value = 170,
 
 \item{custom_df}{defaults to FALSE. If you want to make adjustments to the player data before optimising (eg. you want to exclude certain players from consideration) you can use the fetch_player_data() function and update the resulting dataset yourself. This dataset can be passed as the custom_df parameter.}
 
-\item{expected_points_adjust}{defaults to FALSE. Should we adjust points and points per game for the xA / xG? Data from understat.}
+\item{expected_points_adjust}{defaults to FALSE. Should we adjust points and points per game for the xA / xG? Data comes from understat.}
 }
 \value{
 a data.frame of optimised solution.
