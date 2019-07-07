@@ -103,8 +103,12 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
   if(expected_points_adjust == T) {
     message('adjusting for xA / xG...')
     df <-  fetch_xg_data() %>%
-      filter(!is.na(xG)) %>%
-      filter(id %in% custom_df$id)
+      filter(!is.na(xG))
+    if(!is.logical(custom_df)){
+      df<- df %>%
+        filter(id %in% custom_df$id)
+    }
+
   }
 
   df <- df %>%
