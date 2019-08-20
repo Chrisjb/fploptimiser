@@ -2,8 +2,14 @@
 #'
 #' Scrapes understat data for the 2018 season from understat for the 17 teams that were in the PL in both 2018 and 2019 seasons
 #'
+#' @import jsonlite
+#' @importFrom magrittr %>%
+#' @export
 #'
+#' @return a data.frame of the full player xg data for the season.
 #'
+#' @examples
+#' df <- fetch_understat_data()
 #'
 #'
 
@@ -63,21 +69,21 @@ fpl_dat4_unmatched  <- fpl_dat4 %>%
   filter(is.na(xG))
 
 understat_surnames <- understat %>%
-  mutate(understat_surname = unlist(lapply(str_split(understat$player_name, ' ',simplify = F), function(x) last(x))),
+  mutate(understat_surname = unlist(lapply(stringr::str_split(understat$player_name, ' ',simplify = F), function(x) last(x))),
          understat_surname = stringi::stri_trans_general(understat_surname,"Latin-ASCII"))
 
 
 # focus just on surname and team matching
 found3 <- fpl_dat4_unmatched %>%
   select(-understat_games, -understat_minutes, -understat_goals, -xG, -xA, -understat_assists, -understat_shots, -understat_key_passes, -npg, -npxG) %>%
-  mutate(fpl_surname = unlist(lapply(str_split(fpl_dat4_unmatched$second_name, ' ',simplify = F), function(x) last(x))),
+  mutate(fpl_surname = unlist(lapply(stringr::str_split(fpl_dat4_unmatched$second_name, ' ',simplify = F), function(x) last(x))),
          fpl_surname = stringi::stri_trans_general(fpl_surname,"Latin-ASCII")) %>%
   left_join(understat_surnames, by=c('fpl_surname' = 'understat_surname', 'team' = 'team_code'))  %>%
   filter(!is.na(xG))
 
 found4 <- fpl_dat4_unmatched %>%
   select(-understat_games, -understat_minutes, -understat_goals, -xG, -xA, -understat_assists, -understat_shots, -understat_key_passes, -npg, -npxG) %>%
-  mutate(fpl_surname = unlist(lapply(str_split(fpl_dat4_unmatched$second_name, ' ',simplify = F), function(x) first(x))),
+  mutate(fpl_surname = unlist(lapply(stringr::str_split(fpl_dat4_unmatched$second_name, ' ',simplify = F), function(x) first(x))),
          fpl_surname = stringi::stri_trans_general(fpl_surname,"Latin-ASCII")) %>%
   left_join(understat_surnames, by=c('fpl_surname' = 'understat_surname', 'team' = 'team_code'))  %>%
   filter(!is.na(xG))

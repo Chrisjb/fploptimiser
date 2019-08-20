@@ -6,6 +6,14 @@
 \usage{
 fetch_xg_data()
 }
+\value{
+a data.frame of the full player xg data for the season.
+}
 \description{
 Scrapes understat data for the 2018 season from understat for the 17 teams that were in the PL in both 2018 and 2019 seasons
+}
+\examples{
+df <- fetch_understat_data()
+
+
 }
