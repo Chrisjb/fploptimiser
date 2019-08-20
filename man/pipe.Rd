@@ -5,7 +5,7 @@
 \alias{fetch_player_data}
 \title{Fetch Player Data From The FPL API}
 \usage{
-fetch_player_data(gameweek_range = F)
+fetch_player_data(gameweek_range = 1:2)
 }
 \arguments{
 \item{gameweek_range}{numeric vector of the gameweeks to include in the data. This is not available pre-season and defaults to FALSE including all historic data for the past season.}

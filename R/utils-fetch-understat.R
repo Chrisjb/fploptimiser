@@ -1,7 +1,7 @@
 #' utility function to fetch data for players of a given team from understat
 
 fetch_understat_data <- function(team = 'Arsenal') {
-  understat <- xml2::read_html(paste0('https://understat.com/team/',team,'/2018'))
+  understat <- xml2::read_html(paste0('https://understat.com/team/',team,'/2019'))
 
 
   understat_dat <- understat %>% rvest::html_nodes('script') %>%

@@ -18,23 +18,26 @@
 
 fetch_player_data <- local({
   memory <- list()
-  function(gameweek_range = F) {
-    valueName <- as.character(gameweek_range)
+  function(gameweek_range = 1:2) {
+    valueName <- paste0(gameweek_range, collapse=',')
     if(!is.null(memory[[valueName]])){
       message('Retrieving player data already stored in memory...')
       return(memory[[valueName]])
     }
-    fpl_api <-  jsonlite::fromJSON("https://fantasy.premierleague.com/api/bootstrap-static")
+    fpl_api <-  jsonlite::fromJSON("https://fantasy.premierleague.com/api/bootstrap-static/")
     player_details <- fpl_api$elements
     position_names <- fpl_api$element_types
-    teams <- fpl_api$teams
+    teams <- fpl_api$teams %>%
+      select(-code, -form)
 
     df <- player_details %>% left_join(position_names, by = c('element_type' = 'id'))  %>%
       left_join(teams, by = c('team' = 'id')) %>%
       mutate(points_per_game = as.numeric(points_per_game),
              vapm = (points_per_game - 2) / now_cost,
+             vapm = if_else(vapm < 0, 0, vapm),
              total_points = as.numeric(total_points),
-             games = round(total_points / points_per_game,0))
+             games = round(total_points / points_per_game,0),
+             games = if_else(is.na(games), 0, games))
 
     memory[[valueName]] <<- df
     return(df)
