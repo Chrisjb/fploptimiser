@@ -17,7 +17,8 @@ fetch_xg_data <- function(){
 
 teams <- data.frame(name = c('Arsenal', 'Aston_Villa', 'Bournemouth', 'Brighton', 'Burnley', "Chelsea", 'Crystal_Palace', 'Everton', 'Leicester', 'Liverpool', 'Manchester_City',
            'Manchester_United', 'Newcastle_United', 'Norwich','Sheffield_United', 'Southampton', 'Tottenham', 'Watford', 'West_Ham', 'Wolverhampton_Wanderers'),
-           number = c(1:20))
+           number = c(1:20),
+           stringsAsFactors = F)
 
 message('fetching data from understat...')
 understat <- tibble()
