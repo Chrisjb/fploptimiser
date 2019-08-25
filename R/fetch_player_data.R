@@ -18,9 +18,9 @@
 
 fetch_player_data <- local({
   memory <- list()
-  function(gameweek_range = 1:2) {
+  function(gameweek_range = 1:2, force_refresh = F) {
     valueName <- paste0(gameweek_range, collapse=',')
-    if(!is.null(memory[[valueName]])){
+    if(!is.null(memory[[valueName]]) & force_refresh == F){
       message('Retrieving player data already stored in memory...')
       return(memory[[valueName]])
     }
