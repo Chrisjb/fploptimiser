@@ -66,7 +66,7 @@
 #'
 #' @export
 
-optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, gk =1, def = 3, mid = 4, fwd = 3, gameweek_range = F, min_games = 1, custom_df = F, expected_points_adjust = F) {
+optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, gk =1, def = 3, mid = 4, fwd = 3, gameweek_range = F, min_games = 1, custom_df = F, expected_points_adjust = F, ...) {
 
   # checks
   if(!objective %in% c('points', 'ppg', 'vapm')){
@@ -90,7 +90,7 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
   }
 
   if(is.logical(custom_df)) {
-    df <- fetch_player_data(gameweek_range)
+    df <- fetch_player_data(gameweek_range, ...)
 
 
   } else{

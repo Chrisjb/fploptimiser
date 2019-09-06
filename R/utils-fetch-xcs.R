@@ -1,7 +1,7 @@
 #' utility function to fetch xCS data for teams
 
-# function to calculate xCS for each match
-calc_xcs<- function(match_id, verbose = T) {
+# function to calculate xCS
+calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
   if(verbose==T) message('fetching clean sheet data for match ', match_id)
 
   understat <- xml2::read_html(paste0('https://understat.com/match/',match_id))
@@ -16,7 +16,11 @@ calc_xcs<- function(match_id, verbose = T) {
     mutate(defending_team = if_else(h_a == 'h', a_team, h_team),
            defending_team = stringr::str_replace_all(defending_team, ' ','_'),
            xGA = as.numeric(xG)) %>%
-    select(minute, xGA, result, defending_team)
+    select(minute, xGA, result, defending_team, player, shotType, player_assisted, lastAction)
+
+  if(details ==TRUE) {
+    return(understat_dat)
+  }
 
   # work out xCS
   understat_dat %>%
@@ -25,9 +29,10 @@ calc_xcs<- function(match_id, verbose = T) {
 }
 
 
-fetch_understat_xCS <- function(...){
+# function to scrape xcs data for each match
+fetch_understat_xCS <- function(year = 2019, ...){
   # get IDs of each game played
-  understat_matches <- xml2::read_html('https://understat.com/league/EPL/2019')
+  understat_matches <- xml2::read_html(paste0('https://understat.com/league/EPL/',year))
 
   match_ids <- understat_matches %>%
     rvest::html_nodes('script') %>%
