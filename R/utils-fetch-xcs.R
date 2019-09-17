@@ -15,8 +15,9 @@ calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
     do.call(rbind, .) %>%
     mutate(defending_team = if_else(h_a == 'h', a_team, h_team),
            defending_team = stringr::str_replace_all(defending_team, ' ','_'),
+           home_away = if_else(h_a == 'h', 'a', 'h'),
            xGA = as.numeric(xG)) %>%
-    select(minute, xGA, result, defending_team, player, shotType, player_assisted, lastAction)
+    select(home_away, minute, xGA, result, defending_team, player, shotType, player_assisted, lastAction)
 
   if(details ==TRUE) {
     return(understat_dat)
@@ -24,7 +25,7 @@ calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
 
   # work out xCS
   understat_dat %>%
-    group_by(defending_team) %>%
+    group_by(defending_team, home_away) %>%
     summarise(xCS = prod((1-xGA)))
 }
 
@@ -51,6 +52,35 @@ fetch_understat_xCS <- function(year = 2019, ...){
   do.call(rbind, understat_xCS) %>%
     group_by(defending_team) %>%
     summarise(xCS = sum(xCS), matches = n())
+
+
+}
+
+
+fetch_understat_xCS_ha <- function(year = 2019, ...){
+  # get IDs of each game played
+  understat_matches <- xml2::read_html(paste0('https://understat.com/league/EPL/',year))
+
+  match_ids <- understat_matches %>%
+    rvest::html_nodes('script') %>%
+    as.character() %>%
+    stringr::str_subset('datesData')%>%
+    stringi::stri_unescape_unicode() %>%
+    stringr::str_extract('\\[.+\\]') %>%
+    jsonlite::fromJSON(flatten = T) %>%
+    filter(isResult == 'TRUE') %>%
+    pull(id)
+
+
+  # for each played game, scrape understat xCS
+  understat_xCS <- lapply(match_ids, function(x) calc_xcs(x, ...))
+
+  do.call(rbind, understat_xCS) %>%
+    group_by(defending_team, home_away) %>%
+    summarise(xCS = sum(xCS), matches = n()) %>%
+    pivot_wider(names_from = home_away, values_from = c(xCS, matches)) %>%
+    mutate(xCS_per_game_a = xCS_a / matches_a, xCS_per_game_h = xCS_h / matches_h) %>%
+    mutate(total_xCS = xCS_a + xCS_h)
 
 
 }

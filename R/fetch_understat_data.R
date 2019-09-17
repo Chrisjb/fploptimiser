@@ -3,6 +3,7 @@
 #' Scrapes understat data for the 2018 season from understat for the 17 teams that were in the PL in both 2018 and 2019 seasons
 #'
 #' @import jsonlite
+#' @import tidyr
 #' @importFrom magrittr %>%
 #' @export
 #'
