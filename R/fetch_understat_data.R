@@ -137,7 +137,8 @@ expected_pts <- fpl_dat4 %>%
          points_per_game = total_points/ understat_games,
          vapm = (points_per_game - 2) / now_cost) %>%
   rename(games = understat_games) %>%
-  select(1:8,10:37, team_xcs = 'xCS', team_xcs_per_game = 'xCS_per_game', 38:41, 58:60)
+  select(1:8,10:37, team_xcs = 'xCS', team_xcs_per_game = 'xCS_per_game', 38:41, 58:60) %>%
+  rename(team_code = team)
 
 
 
