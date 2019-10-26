@@ -16,8 +16,9 @@ calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
     mutate(defending_team = if_else(h_a == 'h', a_team, h_team),
            defending_team = stringr::str_replace_all(defending_team, ' ','_'),
            home_away = if_else(h_a == 'h', 'a', 'h'),
-           xGA = as.numeric(xG)) %>%
-    select(home_away, minute, xGA, result, defending_team, player, shotType, player_assisted, lastAction)
+           xGA = as.numeric(xG),
+           GA = if_else(h_a == 'h', h_goals, a_goals)) %>%
+    select(home_away, minute, xGA, result, defending_team, player, shotType, player_assisted, lastAction, GA)
 
   if(details ==TRUE) {
     return(understat_dat)
@@ -26,7 +27,8 @@ calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
   # work out xCS
   understat_dat %>%
     group_by(defending_team, home_away) %>%
-    summarise(xCS = prod((1-xGA)))
+    summarise(xCS = prod((1-xGA)),
+              CS = if_else(last(GA) == 0, 1, 0))
 }
 
 

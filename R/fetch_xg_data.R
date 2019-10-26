@@ -10,7 +10,7 @@
 #' @return a data.frame of the full player xg data for the season.
 #'
 #' @examples
-#' df <- fetch_understat_data()
+#' df <- fetch_xg_data()
 #'
 #'
 
