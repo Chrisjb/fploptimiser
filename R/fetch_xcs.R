@@ -9,6 +9,7 @@
 #' @export
 #'
 #' @param year Season we want to download the xCS data for. For 2019/20 enter 2019.
+#' @param match Fetch xCS data for a single match, if you know the match ID. By default it is set to 'all'.
 #'
 #' @return a data.frame of the expected vs actual clean sheets, split by home/away.
 #'
@@ -16,7 +17,7 @@
 #' df <- fetch_player_data()
 #'
 
-fetch_xCS <- function(year = 2019, ...){
+fetch_xCS <- function(year = 2019, match_id = 'all', ...){
   # get IDs of each game played
   understat_matches <- xml2::read_html(paste0('https://understat.com/league/EPL/',year))
 
@@ -29,6 +30,10 @@ fetch_xCS <- function(year = 2019, ...){
     jsonlite::fromJSON(flatten = T) %>%
     filter(isResult == 'TRUE') %>%
     pull(id)
+
+  if(match != 'all') {
+    return(calc_xcs(match_id))
+  }
 
 
   # for each played game, scrape understat xCS
