@@ -8,7 +8,7 @@
 \usage{
 fetch_player_data(gameweek_range = 1:2, force_refresh = F)
 
-fetch_xCS(year = 2019, match_id = "all", ...)
+fetch_xCS(year = 2019, match_id = "all", ungroup = F, ...)
 }
 \arguments{
 \item{gameweek_range}{numeric vector of the gameweeks to include in the data. This is not available pre-season and defaults to FALSE including all historic data for the past season.}
@@ -16,6 +16,8 @@ fetch_xCS(year = 2019, match_id = "all", ...)
 \item{year}{Season we want to download the xCS data for. For 2019/20 enter 2019.}
 
 \item{match_id}{Fetch xCS data for a single match, if you know the match ID. By default it is set to 'all'.}
+
+\item{ungroup}{Set this to TRUE if you want raw data for each game.}
 }
 \value{
 a data.frame of the full player data and history.
