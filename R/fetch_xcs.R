@@ -16,7 +16,7 @@
 #' df <- fetch_player_data()
 #'
 
-fetch_xCS_ha <- function(year = 2019, ...){
+fetch_xCS <- function(year = 2019, ...){
   # get IDs of each game played
   understat_matches <- xml2::read_html(paste0('https://understat.com/league/EPL/',year))
 
