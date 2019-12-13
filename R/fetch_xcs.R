@@ -41,11 +41,13 @@ fetch_xCS <- function(year = 2019, match_id = 'all', ungroup = F, ...){
   understat_xCS <- lapply(match_ids, function(x) calc_xcs(x, ...))
 
   if(ungroup == T){
-    understat_xCS %>%
+    raw <- understat_xCS %>%
       lapply(., function(x){
         cbind(x, attacking_team = rev(x$defending_team))
       }) %>%
       do.call(rbind, .)
+
+    return(raw)
   }
 
     do.call(rbind, understat_xCS) %>%
