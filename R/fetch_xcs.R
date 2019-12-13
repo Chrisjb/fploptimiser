@@ -31,7 +31,7 @@ fetch_xCS <- function(year = 2019, match_id = 'all', ...){
     filter(isResult == 'TRUE') %>%
     pull(id)
 
-  if(match != 'all') {
+  if(match_id != 'all') {
     return(calc_xcs(match_id))
   }
 
