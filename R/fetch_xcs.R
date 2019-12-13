@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @param year Season we want to download the xCS data for. For 2019/20 enter 2019.
-#' @param match Fetch xCS data for a single match, if you know the match ID. By default it is set to 'all'.
+#' @param match_id Fetch xCS data for a single match, if you know the match ID. By default it is set to 'all'.
 #'
 #' @return a data.frame of the expected vs actual clean sheets, split by home/away.
 #'

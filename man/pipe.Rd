@@ -15,7 +15,7 @@ fetch_xCS(year = 2019, match_id = "all", ...)
 
 \item{year}{Season we want to download the xCS data for. For 2019/20 enter 2019.}
 
-\item{match}{Fetch xCS data for a single match, if you know the match ID. By default it is set to 'all'.}
+\item{match_id}{Fetch xCS data for a single match, if you know the match ID. By default it is set to 'all'.}
 }
 \value{
 a data.frame of the full player data and history.
