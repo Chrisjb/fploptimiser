@@ -23,7 +23,12 @@ Get expected points (adjusting for xG, xA and xCS) data from understat
 df_xp <- fetch_xg_data()
 ```
 
-Get expected clean sheets calculated with understat data
+Get expected clean sheets calculated with understat data:
+
+``` r
+Xclean_sheets <- fetch_xCS()
+```
+
 
 |team                    |xCS_per_game_h |xCS_per_game_a | total_xCS|value    |
 |:-----------------------|:--------------|:--------------|---------:|:--------|
