@@ -32,6 +32,6 @@ Fetches the expected clean sheet data for each prem team. Uses shot data scraped
 \examples{
 df <- fetch_player_data()
 
-df <- fetch_player_data()
+df <- fetch_xCS()
 
 }

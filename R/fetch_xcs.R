@@ -2,21 +2,21 @@
 #'
 #' Fetches the expected clean sheet data for each prem team. Uses shot data scraped from Understat.
 #'
-#' @import jsonlite
-#' @importFrom magrittr %>%
-#' @name %>%
-#' @rdname pipe
-#' @export
 #'
 #' @param year Season we want to download the xCS data for. For 2019/20 enter 2019.
 #' @param match_id Fetch xCS data for a single match, if you know the match ID. By default it is set to 'all'.
 #' @param ungroup Set this to TRUE if you want raw data for each game.
-#'
 #' @return a data.frame of the expected vs actual clean sheets, split by home/away.
 #'
-#' @examples
-#' df <- fetch_player_data()
+#' @import jsonlite
+#' @importFrom magrittr %>%
+#' @name %>%
+#' @rdname pipe
 #'
+#' @examples
+#' df <- fetch_xCS()
+#'
+#' @export
 
 fetch_xCS <- function(year = 2019, match_id = 'all', ungroup = F, ...){
   # get IDs of each game played
