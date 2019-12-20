@@ -1,25 +1,36 @@
 #' Fetch xG and xA data from understat
 #'
-#' Scrapes understat data for the 2018 season from understat for the 17 teams that were in the PL in both 2018 and 2019 seasons
+#' Scrapes xA and xG data for a given season from understat
+#'
+#' @param year the season for which we want to scrape data from understat. Currently covers only teams who were in the premier league in either 2018/19 or 2019/20
 #'
 #' @import jsonlite
 #' @import tidyr
+#' @import glue
 #' @importFrom magrittr %>%
 #' @export
 #'
 #' @return a data.frame of the full player xg data for the season.
 #'
 #' @examples
-#' df <- fetch_xg_data()
+#' df <- fetch_xg_data(year = 2019)
 #'
 #'
 
-fetch_xg_data <- function(){
+fetch_xg_data <- function(year = 2019){
 
-teams <- data.frame(name = c('Arsenal', 'Aston_Villa', 'Bournemouth', 'Brighton', 'Burnley', "Chelsea", 'Crystal_Palace', 'Everton', 'Leicester', 'Liverpool', 'Manchester_City',
-           'Manchester_United', 'Newcastle_United', 'Norwich','Sheffield_United', 'Southampton', 'Tottenham', 'Watford', 'West_Ham', 'Wolverhampton_Wanderers'),
-           number = c(1:20),
-           stringsAsFactors = F)
+  if(year == 2019){
+
+    teams <- data.frame(name = c('Arsenal', 'Aston_Villa', 'Bournemouth', 'Brighton', 'Burnley', "Chelsea", 'Crystal_Palace', 'Everton', 'Leicester', 'Liverpool', 'Manchester_City',
+               'Manchester_United', 'Newcastle_United', 'Norwich','Sheffield_United', 'Southampton', 'Tottenham', 'Watford', 'West_Ham', 'Wolverhampton_Wanderers'),
+               number = c(1:20),
+               stringsAsFactors = F)
+  } else {
+    teams <- data.frame(name = c('Arsenal', 'Bournemouth', 'Brighton', 'Burnley', 'Cardiff', "Chelsea", 'Crystal_Palace', 'Everton', 'Fulham', 'Huddersfield', 'Leicester', 'Liverpool', 'Manchester_City',
+                                 'Manchester_United', 'Newcastle_United', 'Southampton', 'Tottenham', 'Watford', 'West_Ham', 'Wolverhampton_Wanderers'),
+                        number = c(1:20),
+                        stringsAsFactors = F)
+  }
 
 message('fetching data from understat...')
 understat <- tibble()

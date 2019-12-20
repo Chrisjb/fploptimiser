@@ -567,7 +567,8 @@ Burnley,h,0.4746323121845823,0,Crystal_Palace
 Crystal_Palace,a,0.0936676770777407,0,Burnley
 Brighton,h,0.8139445777832884,1,Huddersfield
 Huddersfield,a,0.17135032611472675,0,Brighton
-Bournemouth,h,0.1689677963058614,0,Bournemouth
+Bournemouth,h,0.1689677963058614,0,Manchester_City
+Manchester_City,a,1,1,Bournemouth
 Newcastle_United,a,0.06703295492483721,0,West_Ham
 West_Ham,h,0.27818322827035535,1,Newcastle_United
 Leicester,a,0.15835977875864773,0,Watford
