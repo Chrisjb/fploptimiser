@@ -4,9 +4,20 @@
 \alias{optimise_team}
 \title{Fetch Player Data From The FPL API}
 \usage{
-optimise_team(objective = "points", bank = 1000, bench_value = 170,
-  gk = 1, def = 3, mid = 4, fwd = 3, gameweek_range = F,
-  min_games = 1, custom_df = F, expected_points_adjust = F, ...)
+optimise_team(
+  objective = "points",
+  bank = 1000,
+  bench_value = 170,
+  gk = 1,
+  def = 3,
+  mid = 4,
+  fwd = 3,
+  gameweek_range = F,
+  min_games = 1,
+  custom_df = F,
+  expected_points_adjust = F,
+  ...
+)
 }
 \arguments{
 \item{objective}{takes value 'points', 'ppg' or 'vapm', indicating whether we want to maximise the total points obtained over the course of the dataset (season), the points per game played, or value added per million.}
