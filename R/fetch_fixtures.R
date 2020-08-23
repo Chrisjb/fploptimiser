@@ -1,3 +1,4 @@
+library(ggplot2)
 root <- jsonlite::fromJSON("https://fantasy.premierleague.com/api/bootstrap-static/")
 
 fix <- jsonlite::fromJSON('https://fantasy.premierleague.com/api/fixtures')
@@ -37,7 +38,7 @@ fd_summary <- fixture_difficulty %>%
   ungroup()
 
 cols <-c('#851f46','#fc115d','#ebebe4','#2afd8b')
-p <- ggplot(fd_summary, aes(gw, forcats::fct_rev(team_name))) +
+p <- ggplot2::ggplot(fd_summary, aes(gw, forcats::fct_rev(team_name))) +
     geom_tile(aes(fill = difficulty),
               colour = "white") +
     geom_text(aes(label = ha), size= 3, col = 'grey')+
@@ -59,7 +60,7 @@ next_n %>%
   arrange(mean_difficulty)
 
 
-ggplot(next_n, aes(gw, forcats::fct_rev(team_name))) +
+ggplot2::ggplot(next_n, aes(gw, forcats::fct_rev(team_name))) +
   geom_tile(aes(fill = difficulty),
             colour = "white") +
   scale_fill_manual(values = rev(cols)) +
