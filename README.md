@@ -63,12 +63,8 @@ You can optimise your team based on maximising total points from the historic da
 result <- optimise_team(objective = 'ppg', bank = 1000, bench_value = 170, gk = 1, def = 3, mid = 4, fwd = 3, min_games = 3)
 ```
 
-Optimise team based on expected points (adjusting for xG, xA and xCS). We set `expected_points_adjust = T`. THIS IS NOT CURRENTLY RECOMMENDED (see note below)
-``` r
-result_xp <- optimise_team(objective = 'ppg', bank = 1000, bench_value = 170, gk = 1, def = 3, mid = 4, fwd = 3, min_games = 3, expected_points_adjust = TRUE)
-```
-
-NOTE: due to the fact that understat data is not currently memoized (on the to-do list), it is best to download the understat data first and then use it in the `custom_df` parameter to avoid downloading again each time you run the function:
+#### Using expected points 
+If we want to use expected points instead of actual points to optimise the team, we should first fetch the xg data and then we can feed that into the `custom_df` argument to `optimise_team`:
 
 ```r
 df_xp <- fetch_xg_data()
