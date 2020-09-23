@@ -4,7 +4,7 @@
 \alias{fetch_understat_data}
 \title{utility function to fetch data for players of a given team from understat}
 \usage{
-fetch_understat_data(team = "Arsenal", year = "2019")
+fetch_understat_data(team = "Arsenal", year = "2020")
 }
 \description{
 utility function to fetch data for players of a given team from understat

@@ -3,12 +3,13 @@
 #' Fetches the expected clean sheet data for each prem team. Uses shot data scraped from Understat.
 #'
 #'
-#' @param year Season we want to download the xCS data for. For 2019/20 enter 2019.
+#' @param year Season we want to download the xCS data for. For 2020/21 enter 2021.
 #' @param match_id Fetch xCS data for a single match, if you know the match ID. By default it is set to 'all'.
 #' @param ungroup Set this to TRUE if you want raw data for each game.
-#' @return a data.frame of the expected vs actual clean sheets, split by home/away.
+#' @return a data.frame of the expected clean sheets, split by home/away.
 #'
 #' @import jsonlite
+#' @import progress
 #' @importFrom magrittr %>%
 #' @name %>%
 #' @rdname pipe
@@ -18,7 +19,7 @@
 #'
 #' @export
 
-fetch_xCS <- function(year = 2019, match_id = 'all', ungroup = F, ...){
+fetch_xCS <- function(year = 2020, match_id = 'all', ungroup = F, ...){
   # get IDs of each game played
   understat_matches <- xml2::read_html(paste0('https://understat.com/league/EPL/',year))
 
@@ -36,12 +37,23 @@ fetch_xCS <- function(year = 2019, match_id = 'all', ungroup = F, ...){
     return(calc_xcs(match_id))
   }
 
+  pb <- progress::progress_bar$new(
+    format = "  downloading :what [:bar] :percent eta: :eta",
+    clear = FALSE, total = length(match_ids), width = 60)
 
   # for each played game, scrape understat xCS
-  understat_xCS <- lapply(match_ids, function(x) calc_xcs(x, ...))
+  xcs_df <- data.frame()
+  for(i in match_ids){
+    tmp <- calc_xcs(i)
+    xcs_df <- rbind(xcs_df, tmp)
+    if(pb$finished != TRUE) {
+      pb$tick(tokens = list(what= glue::glue('match {i}')))
+    }
+  }
 
+  pb$terminate()
   if(ungroup == T){
-    raw <- understat_xCS %>%
+    raw <- xcs_df %>%
       lapply(., function(x){
         cbind(x, attacking_team = rev(x$defending_team))
       }) %>%
@@ -50,7 +62,7 @@ fetch_xCS <- function(year = 2019, match_id = 'all', ungroup = F, ...){
     return(raw)
   }
 
-    do.call(rbind, understat_xCS) %>%
+  xcs_df %>%
     group_by(defending_team, home_away) %>%
     summarise(xCS = sum(xCS), matches = n()) %>%
     pivot_wider(names_from = home_away, values_from = c(xCS, matches)) %>%

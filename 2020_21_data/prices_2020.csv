@@ -1,0 +1,477 @@
+name,position,team,points,price
+Leno,GKP,Arsenal,114,5
+Martínez,GKP,Arsenal,33,4.5
+David Luiz,DEF,Arsenal,94,5.5
+Tierney,DEF,Arsenal,42,5.5
+Sokratis,DEF,Arsenal,57,5
+Cédric,DEF,Arsenal,61,5
+Mustafi,DEF,Arsenal,43,5
+Bellerín,DEF,Arsenal,44,5
+Kolasinac,DEF,Arsenal,55,5
+Maitland-Niles,DEF,Arsenal,41,5
+Marí,DEF,Arsenal,8,4.5
+Chambers,DEF,Arsenal,42,4.5
+Holding,DEF,Arsenal,16,4.5
+Saliba,DEF,Arsenal,0,4.5
+Aubameyang,MID,Arsenal,205,12
+Pépé,MID,Arsenal,106,8
+Özil,MID,Arsenal,53,7
+Xhaka,MID,Arsenal,73,5.5
+Nelson,MID,Arsenal,30,5.5
+Saka,MID,Arsenal,71,5.5
+Torreira,MID,Arsenal,46,5
+Willock,MID,Arsenal,41,5
+Guendouzi,MID,Arsenal,48,5
+Martinelli,MID,Arsenal,39,5
+Smith Rowe,MID,Arsenal,4,4.5
+Lacazette,FWD,Arsenal,118,8.5
+Nketiah,FWD,Arsenal,25,6
+Heaton,GKP,Aston Villa,59,4.5
+Steer,GKP,Aston Villa,1,4
+Nyland,GKP,Aston Villa,15,4
+Mings,DEF,Aston Villa,90,5
+El Mohamady,DEF,Aston Villa,39,4.5
+Taylor,DEF,Aston Villa,22,4.5
+Engels,DEF,Aston Villa,42,4.5
+Hause,DEF,Aston Villa,34,4.5
+Targett,DEF,Aston Villa,80,4.5
+Bree,DEF,Aston Villa,0,4.5
+Konsa,DEF,Aston Villa,65,4.5
+Guilbert,DEF,Aston Villa,62,4.5
+Grealish,MID,Aston Villa,149,7
+Hourihane,MID,Aston Villa,83,6
+Jota,MID,Aston Villa,17,6
+El Ghazi,MID,Aston Villa,93,6
+McGinn,MID,Aston Villa,84,5.5
+Trézéguet,MID,Aston Villa,98,5.5
+Douglas Luiz,MID,Aston Villa,90,5
+Lansbury,MID,Aston Villa,12,4.5
+Nakamba,MID,Aston Villa,43,4.5
+Wesley,FWD,Aston Villa,67,6
+Samatta,FWD,Aston Villa,29,6
+Davis,FWD,Aston Villa,25,4.5
+Vassilev,FWD,Aston Villa,4,4.5
+Ryan,GKP,Brighton,135,4.5
+Button,GKP,Brighton,0,4
+Dunk,DEF,Brighton,128,5
+Duffy,DEF,Brighton,44,4.5
+Burn,DEF,Brighton,86,4.5
+Montoya,DEF,Brighton,62,4.5
+Webster,DEF,Brighton,88,4.5
+Veltman,DEF,Brighton,0,4.5
+Clarke,DEF,Brighton,0,4.5
+White,DEF,Brighton,0,4.5
+Lamptey,DEF,Brighton,26,4.5
+Bernardo,DEF,Brighton,21,4
+Lallana,MID,Brighton,27,6.5
+Groß,MID,Brighton,76,6
+Trossard,MID,Brighton,104,6
+Jahanbakhsh,MID,Brighton,28,5.5
+Izquierdo,MID,Brighton,0,5.5
+Mac Allister,MID,Brighton,12,5.5
+Pröpper,MID,Brighton,78,5
+Mooy,MID,Brighton,80,5
+March,MID,Brighton,38,5
+Stephens,MID,Brighton,63,4.5
+Bissouma,MID,Brighton,39,4.5
+Alzate,MID,Brighton,33,4.5
+Maupay,FWD,Brighton,131,6.5
+Connolly,FWD,Brighton,61,5.5
+Murray,FWD,Brighton,36,5
+Andone,FWD,Brighton,5,5
+Pope,GKP,Burnley,170,5.5
+Peacock-Farrell,GKP,Burnley,0,4
+Tarkowski,DEF,Burnley,143,5.5
+Mee,DEF,Burnley,110,5
+Bardsley,DEF,Burnley,78,4.5
+Pieters,DEF,Burnley,77,4.5
+Long,DEF,Burnley,21,4.5
+Lowton,DEF,Burnley,48,4.5
+Taylor,DEF,Burnley,84,4.5
+Gibson,DEF,Burnley,0,4
+McNeil,MID,Burnley,123,6
+Westwood,MID,Burnley,118,5.5
+Gudmundsson,MID,Burnley,30,5.5
+Cork,MID,Burnley,70,5
+Brady,MID,Burnley,32,5
+Brownhill,MID,Burnley,21,5
+Wood,FWD,Burnley,136,6.5
+Rodriguez,FWD,Burnley,100,6
+Barnes,FWD,Burnley,61,6
+Vydra,FWD,Burnley,39,5
+Caballero,GKP,Chelsea,13,5
+Arrizabalaga,GKP,Chelsea,90,5
+Azpilicueta,DEF,Chelsea,130,6
+Alonso,DEF,Chelsea,100,6
+Rüdiger,DEF,Chelsea,63,5
+Zouma,DEF,Chelsea,62,5
+Emerson,DEF,Chelsea,19,5
+Christensen,DEF,Chelsea,34,5
+Tomori,DEF,Chelsea,48,5
+James,DEF,Chelsea,61,5
+Pulisic,MID,Chelsea,127,8.5
+Ziyech,MID,Chelsea,0,8
+Mount,MID,Chelsea,137,7
+Barkley,MID,Chelsea,61,6
+Loftus-Cheek,MID,Chelsea,12,6
+Hudson-Odoi,MID,Chelsea,53,6
+Kovacic,MID,Chelsea,68,5.5
+Jorginho,MID,Chelsea,92,5
+Kanté,MID,Chelsea,57,5
+Gilmour,MID,Chelsea,9,4.5
+Werner,FWD,Chelsea,0,9.5
+Abraham,FWD,Chelsea,153,7.5
+Giroud,FWD,Chelsea,68,7
+Batshuayi,FWD,Chelsea,28,6
+Guaita,GKP,Crystal Palace,137,5
+Hennessey,GKP,Crystal Palace,7,4.5
+van Aanholt,DEF,Crystal Palace,109,5.5
+Cahill,DEF,Crystal Palace,70,4.5
+Sakho,DEF,Crystal Palace,11,4.5
+Tomkins,DEF,Crystal Palace,48,4.5
+Ward,DEF,Crystal Palace,77,4.5
+Kelly,DEF,Crystal Palace,64,4.5
+Ferguson,DEF,Crystal Palace,0,4
+Mitchell,DEF,Crystal Palace,4,4
+Zaha,MID,Crystal Palace,120,7
+Townsend,MID,Crystal Palace,48,6
+Milivojevic,MID,Crystal Palace,81,6
+McArthur,MID,Crystal Palace,92,5.5
+Schlupp,MID,Crystal Palace,51,5.5
+Kouyaté,MID,Crystal Palace,85,5
+Meyer,MID,Crystal Palace,23,5
+McCarthy,MID,Crystal Palace,41,4.5
+Riedewald,MID,Crystal Palace,22,4.5
+Pierrick,MID,Crystal Palace,2,4.5
+Ayew,FWD,Crystal Palace,132,6
+Benteke,FWD,Crystal Palace,42,5.5
+Wickham,FWD,Crystal Palace,15,4.5
+Pickford,GKP,Everton,117,5
+Lössl,GKP,Everton,0,4.5
+Virgínia,GKP,Everton,0,4.5
+Digne,DEF,Everton,120,6
+Mina,DEF,Everton,78,5.5
+Coleman,DEF,Everton,55,5
+Keane,DEF,Everton,90,5
+Holgate,DEF,Everton,71,5
+Kenny,DEF,Everton,0,4.5
+Branthwaite,DEF,Everton,11,4
+Sigurdsson,MID,Everton,95,7
+Walcott,MID,Everton,63,6
+Bernard,MID,Everton,72,6
+Iwobi,MID,Everton,52,6
+André Gomes,MID,Everton,39,5.5
+Davies,MID,Everton,59,5.5
+Delph,MID,Everton,24,5
+Gbamin,MID,Everton,4,5
+Gordon,MID,Everton,17,4.5
+Richarlison,FWD,Everton,165,8
+Calvert-Lewin,FWD,Everton,126,7
+Tosun,FWD,Everton,24,6
+Kean,FWD,Everton,53,6
+Bettinelli,GKP,Fulham,0,4.5
+Rodák,GKP,Fulham,0,4.5
+Fabri,GKP,Fulham,0,4
+Bryan,DEF,Fulham,0,5
+Le Marchand,DEF,Fulham,0,4.5
+Ream,DEF,Fulham,0,4.5
+Hector,DEF,Fulham,0,4.5
+Christie,DEF,Fulham,0,4.5
+Mawson,DEF,Fulham,0,4.5
+Sessegnon,DEF,Fulham,0,4.5
+Cairney,MID,Fulham,0,5.5
+Knockaert,MID,Fulham,0,5.5
+Cavaleiro,MID,Fulham,0,5.5
+McDonald,MID,Fulham,0,5
+Johansen,MID,Fulham,0,5
+Kebano,MID,Fulham,0,5
+Onomah,MID,Fulham,0,5
+Seri,MID,Fulham,0,5
+Kamara,MID,Fulham,0,5
+Anguissa,MID,Fulham,0,4.5
+Mitrović,FWD,Fulham,0,6
+Decordova-Reid,FWD,Fulham,0,5.5
+Casilla,GKP,Leeds,0,4.5
+Meslier,GKP,Leeds,0,4.5
+Miazek,GKP,Leeds,0,4
+Cooper,DEF,Leeds,0,4.5
+Ayling,DEF,Leeds,0,4.5
+Dallas,DEF,Leeds,0,4.5
+Alioski,DEF,Leeds,0,4.5
+Douglas,DEF,Leeds,0,4
+Struijk,DEF,Leeds,0,4
+Davis,DEF,Leeds,0,4
+Casey,DEF,Leeds,0,4
+Hernández,MID,Leeds,0,6
+Klich,MID,Leeds,0,5.5
+Harrison,MID,Leeds,0,5.5
+Costa,MID,Leeds,0,5.5
+Forshaw,MID,Leeds,0,5
+Phillips,MID,Leeds,0,5
+Roberts,MID,Leeds,0,5
+Grot,MID,Leeds,0,5
+Shackleton,MID,Leeds,0,5
+Poveda-Ocampo,MID,Leeds,0,4.5
+Stevens,MID,Leeds,0,4.5
+Bamford,FWD,Leeds,0,5.5
+Schmeichel,GKP,Leicester,156,5.5
+Ward,GKP,Leicester,0,4.5
+Pereira,DEF,Leicester,123,6
+Evans,DEF,Leicester,128,5.5
+Chilwell,DEF,Leicester,114,5.5
+Söyüncü,DEF,Leicester,120,5.5
+Morgan,DEF,Leicester,19,4.5
+Fuchs,DEF,Leicester,26,4.5
+Benkovic,DEF,Leicester,0,4.5
+Justin,DEF,Leicester,35,4.5
+Thomas,DEF,Leicester,15,4.5
+Amartey,DEF,Leicester,0,4
+Maddison,MID,Leicester,125,7
+Barnes,MID,Leicester,133,7
+Tielemans,MID,Leicester,117,6.5
+Pérez,MID,Leicester,129,6.5
+Albrighton,MID,Leicester,38,5.5
+Praet,MID,Leicester,54,5.5
+Gray,MID,Leicester,44,5.5
+Choudhury,MID,Leicester,35,5
+Ndidi,MID,Leicester,85,5
+Silva,MID,Leicester,0,4.5
+James,MID,Leicester,1,4.5
+Vardy,FWD,Leicester,210,10
+Iheanacho,FWD,Leicester,64,6
+Alisson,GKP,Liverpool,122,6
+Adrián,GKP,Liverpool,27,4.5
+Alexander-Arnold,DEF,Liverpool,210,7.5
+Robertson,DEF,Liverpool,181,7
+van Dijk,DEF,Liverpool,178,6.5
+Matip,DEF,Liverpool,39,5.5
+Gomez,DEF,Liverpool,93,5.5
+Tsimikas,DEF,Liverpool,0,5
+Williams,DEF,Liverpool,14,4
+Mané,MID,Liverpool,221,12
+Salah,MID,Liverpool,233,12
+Shaqiri,MID,Liverpool,15,6.5
+Chamberlain,MID,Liverpool,76,6.5
+Minamino,MID,Liverpool,11,6.5
+Milner,MID,Liverpool,49,5.5
+Wijnaldum,MID,Liverpool,107,5.5
+Henderson,MID,Liverpool,116,5.5
+Fabinho,MID,Liverpool,77,5.5
+Harry Wilson,MID,Liverpool,91,5.5
+Keita,MID,Liverpool,52,5.5
+Jones,MID,Liverpool,13,4.5
+Elliott,MID,Liverpool,2,4.5
+Firmino,FWD,Liverpool,155,9.5
+Origi,FWD,Liverpool,65,5.5
+Brewster,FWD,Liverpool,0,4.5
+Ederson,GKP,Man City,133,6
+Bravo,GKP,Man City,11,4.5
+Walker,DEF,Man City,114,6
+Mendy,DEF,Man City,74,6
+Laporte,DEF,Man City,63,6
+Fernandinho,DEF,Man City,55,5.5
+Cancelo,DEF,Man City,45,5.5
+Aké,DEF,Man City,79,5.5
+Zinchenko,DEF,Man City,49,5.5
+Otamendi,DEF,Man City,82,5
+Stones,DEF,Man City,34,5
+Garcia,DEF,Man City,38,5
+De Bruyne,MID,Man City,251,11.5
+Sterling,MID,Man City,204,11.5
+Mahrez,MID,Man City,175,8.5
+Bernardo Silva,MID,Man City,116,7.5
+Torres,MID,Man City,0,7
+Foden,MID,Man City,69,6.5
+Gündogan,MID,Man City,65,5.5
+Rodrigo,MID,Man City,92,5.5
+Doyle,MID,Man City,1,4.5
+Agüero,FWD,Man City,132,10.5
+Jesus,FWD,Man City,146,9.5
+de Gea,GKP,Man Utd,143,5.5
+Henderson,GKP,Man Utd,160,5.5
+Romero,GKP,Man Utd,0,5
+Maguire,DEF,Man Utd,123,5.5
+Wan-Bissaka,DEF,Man Utd,127,5.5
+Smalling,DEF,Man Utd,0,5
+Rojo,DEF,Man Utd,3,5
+Jones,DEF,Man Utd,2,5
+Shaw,DEF,Man Utd,67,5
+Lindelöf,DEF,Man Utd,116,5
+Bailly,DEF,Man Utd,9,5
+Dalot,DEF,Man Utd,4,5
+Tuanzebe,DEF,Man Utd,7,4.5
+Fosu-Mensah,DEF,Man Utd,7,4.5
+Williams,DEF,Man Utd,51,4.5
+Mengi,DEF,Man Utd,0,4
+Fernandes,MID,Man Utd,117,10.5
+Rashford,MID,Man Utd,177,9.5
+Pogba,MID,Man Utd,51,8
+Greenwood,MID,Man Utd,103,7.5
+James,MID,Man Utd,95,6.5
+Mata,MID,Man Utd,38,6
+Lingard,MID,Man Utd,32,6
+Fred,MID,Man Utd,50,5.5
+Matic,MID,Man Utd,55,5
+Pereira,MID,Man Utd,60,5
+McTominay,MID,Man Utd,74,5
+Chong,MID,Man Utd,3,4.5
+Garner,MID,Man Utd,1,4.5
+Martial,FWD,Man Utd,200,9
+Ighalo,FWD,Man Utd,11,6.5
+Darlow,GKP,Newcastle,0,5
+Dubravka,GKP,Newcastle,143,5
+Fernández,DEF,Newcastle,102,5
+Schär,DEF,Newcastle,55,5
+Clark,DEF,Newcastle,49,4.5
+Lejeune,DEF,Newcastle,24,4.5
+Lascelles,DEF,Newcastle,73,4.5
+Dummett,DEF,Newcastle,44,4.5
+Manquillo,DEF,Newcastle,65,4.5
+Krafth,DEF,Newcastle,37,4.5
+Yedlin,DEF,Newcastle,26,4.5
+Watts,DEF,Newcastle,1,4
+Almirón,MID,Newcastle,109,6
+Shelvey,MID,Newcastle,105,5.5
+Atsu,MID,Newcastle,37,5.5
+Saint-Maximin,MID,Newcastle,92,5.5
+Ritchie,MID,Newcastle,74,5
+Hayden,MID,Newcastle,73,5
+Aarons,MID,Newcastle,0,5
+Gayle,FWD,Newcastle,58,6
+Joelinton,FWD,Newcastle,78,6
+Carroll,FWD,Newcastle,34,5.5
+Muto,FWD,Newcastle,9,5
+Moore,GKP,Sheffield Utd,3,4.5
+Foderingham,GKP,Sheffield Utd,0,4.5
+Stevens,DEF,Sheffield Utd,142,5.5
+Baldock,DEF,Sheffield Utd,142,5.5
+Basham,DEF,Sheffield Utd,123,5
+Egan,DEF,Sheffield Utd,133,5
+O'Connell,DEF,Sheffield Utd,111,5
+Jack Robinson,DEF,Sheffield Utd,14,4.5
+Fleck,MID,Sheffield Utd,101,6
+Lundstram,MID,Sheffield Utd,144,5.5
+Norwood,MID,Sheffield Utd,98,5
+Osborn,MID,Sheffield Utd,19,5
+Berge,MID,Sheffield Utd,40,5
+Sharp,FWD,Sheffield Utd,57,6
+McBurnie,FWD,Sheffield Utd,86,6
+Mousset,FWD,Sheffield Utd,84,6
+McGoldrick,FWD,Sheffield Utd,65,5.5
+Callum Robinson,FWD,Sheffield Utd,33,5.5
+McCarthy,GKP,Southampton,104,4.5
+Gunn,GKP,Southampton,29,4.5
+Bertrand,DEF,Southampton,75,5
+Stephens,DEF,Southampton,85,5
+Valery,DEF,Southampton,18,5
+Vestergaard,DEF,Southampton,51,4.5
+Walker-Peters,DEF,Southampton,32,4.5
+Bednarek,DEF,Southampton,84,4.5
+Vokins,DEF,Southampton,2,4
+Redmond,MID,Southampton,107,6.5
+Ward-Prowse,MID,Southampton,117,6
+Armstrong,MID,Southampton,98,5.5
+Boufal,MID,Southampton,34,5.5
+Djenepo,MID,Southampton,40,5.5
+Oriol Romeu,MID,Southampton,51,4.5
+Reed,MID,Southampton,0,4.5
+Sims,MID,Southampton,0,4.5
+Smallbone,MID,Southampton,24,4.5
+Ings,FWD,Southampton,198,8.5
+Adams,FWD,Southampton,78,6
+Long,FWD,Southampton,62,5.5
+Obafemi,FWD,Southampton,45,5
+Lloris,GKP,Spurs,98,5.5
+Gazzaniga,GKP,Spurs,58,4.5
+Alderweireld,DEF,Spurs,97,5.5
+Aurier,DEF,Spurs,124,5.5
+Sánchez,DEF,Spurs,64,5.5
+Rose,DEF,Spurs,47,5
+Dier,DEF,Spurs,36,5
+Davies,DEF,Spurs,41,5
+Sessegnon,DEF,Spurs,9,5
+Tanganga,DEF,Spurs,17,5
+Foyth,DEF,Spurs,3,4.5
+Son,MID,Spurs,169,9
+Alli,MID,Spurs,117,8
+Bergwijn,MID,Spurs,43,7.5
+Lucas Moura,MID,Spurs,100,7
+Lo Celso,MID,Spurs,54,7
+Lamela,MID,Spurs,65,6
+Ndombele,MID,Spurs,45,6
+Winks,MID,Spurs,52,5.5
+Sissoko,MID,Spurs,69,5
+Højbjerg,MID,Spurs,75,5
+Fernandes,MID,Spurs,7,5
+Skipp,MID,Spurs,7,4.5
+Kane,FWD,Spurs,158,10.5
+Johnstone,GKP,West Brom,0,4.5
+Ajayi,DEF,West Brom,0,5
+Gibbs,DEF,West Brom,0,4.5
+Bartley,DEF,West Brom,0,4.5
+Hegazi,DEF,West Brom,0,4.5
+Townsend,DEF,West Brom,0,4.5
+Furlong,DEF,West Brom,0,4.5
+O'Shea,DEF,West Brom,0,4.5
+Grosicki,MID,West Brom,0,5.5
+Phillips,MID,West Brom,0,5.5
+Livermore,MID,West Brom,0,5
+Sawyers,MID,West Brom,0,5
+Edwards,MID,West Brom,0,5
+Field,MID,West Brom,0,5
+Leko,MID,West Brom,0,4.5
+Burke,MID,West Brom,0,4.5
+Harper,MID,West Brom,0,4.5
+Robson-Kanu,FWD,West Brom,0,5.5
+Austin,FWD,West Brom,0,5.5
+Zohore,FWD,West Brom,0,5
+Fabianski,GKP,West Ham,83,5
+Randolph,GKP,West Ham,3,4.5
+Roberto,GKP,West Ham,18,4.5
+Martin,GKP,West Ham,20,4
+Ogbonna,DEF,West Ham,81,5
+Cresswell,DEF,West Ham,79,5
+Fredericks,DEF,West Ham,74,4.5
+Masuaku,DEF,West Ham,26,4.5
+Balbuena,DEF,West Ham,40,4.5
+Diop,DEF,West Ham,76,4.5
+Johnson,DEF,West Ham,6,4
+Lanzini,MID,West Ham,50,6.5
+Felipe Anderson,MID,West Ham,66,6.5
+Bowen,MID,West Ham,44,6.5
+Fornals,MID,West Ham,93,6.5
+Snodgrass,MID,West Ham,87,6
+Yarmolenko,MID,West Ham,70,6
+Diangana,MID,West Ham,0,5.5
+Noble,MID,West Ham,105,5
+Wilshere,MID,West Ham,8,5
+Rice,MID,West Ham,105,5
+Soucek,MID,West Ham,41,5
+Antonio,FWD,West Ham,111,6.5
+Haller,FWD,West Ham,102,6.5
+Hugill,FWD,West Ham,0,5.5
+Ajeti,FWD,West Ham,9,5.5
+Patrício,GKP,Wolves,153,5.5
+Ruddy,GKP,Wolves,0,4.5
+Sarkic,GKP,Wolves,0,4.5
+Doherty,DEF,Wolves,167,6
+Boly,DEF,Wolves,97,5.5
+Jonny,DEF,Wolves,123,5.5
+Coady,DEF,Wolves,118,5
+Saïss,DEF,Wolves,103,5
+Bennett,DEF,Wolves,32,4.5
+Vinagre,DEF,Wolves,32,4.5
+Buur,DEF,Wolves,0,4
+Kilman,DEF,Wolves,5,4
+Traoré,MID,Wolves,130,6.5
+Jota,MID,Wolves,105,6.5
+Moutinho,MID,Wolves,113,5.5
+Neves,MID,Wolves,97,5.5
+Podence,MID,Wolves,25,5.5
+Neto,MID,Wolves,57,5.5
+Dendoncker,MID,Wolves,100,5
+Gibbs-White,MID,Wolves,11,5
+Jordao,MID,Wolves,1,4.5
+Jiménez,FWD,Wolves,194,8.5
+Bonatini,FWD,Wolves,0,5
+Campana,FWD,Wolves,0,5

@@ -1,8 +1,9 @@
 #' utility function to fetch xCS data for teams
 
 # function to calculate xCS
-calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
-  if(verbose==T) message('fetching clean sheet data for match ', match_id)
+calc_xcs<- function(match_id, details = FALSE) {
+
+
 
   understat <- xml2::read_html(paste0('https://understat.com/match/',match_id))
 
@@ -11,7 +12,7 @@ calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
     stringr::str_subset('shotsData') %>%
     stringi::stri_unescape_unicode()  %>%
     stringr::str_extract('\\{.+\\}') %>%
-    jsonlite::fromJSON(flatten = T) %>%
+    jsonlite::fromJSON() %>%
     do.call(rbind, .) %>%
     mutate(defending_team = if_else(h_a == 'h', a_team, h_team),
            defending_team = stringr::str_replace_all(defending_team, ' ','_'),
@@ -28,7 +29,7 @@ calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
       stringi::stri_unescape_unicode()  %>%
       stringr::str_extract('\\{.+\\}') %>%
       jsonlite::fromJSON(flatten = T) %>%
-      do.call(rbind, .) %>%
+      do.call(rbind, .data) %>%
       mutate(defending_team = if_else(h_a == 'h', a_team, h_team),
              defending_team = stringr::str_replace_all(defending_team, ' ','_'),
              home_away = if_else(h_a == 'h', 'a', 'h'),
@@ -78,7 +79,7 @@ calc_xcs<- function(match_id, verbose = TRUE, details = FALSE) {
 
 
 # function to scrape xcs data for each match
-fetch_understat_xCS <- function(year = 2019, ...){
+fetch_understat_xCS <- function(year = 2020, ...){
   # get IDs of each game played
   understat_matches <- xml2::read_html(paste0('https://understat.com/league/EPL/',year))
 
@@ -92,11 +93,23 @@ fetch_understat_xCS <- function(year = 2019, ...){
     filter(isResult == 'TRUE') %>%
     pull(id)
 
+  pb <- progress::progress_bar$new(
+    format = "  downloading :what [:bar] :percent eta: :eta",
+    clear = FALSE, total = length(match_ids), width = 60)
 
   # for each played game, scrape understat xCS
-  understat_xCS <- lapply(match_ids, function(x) calc_xcs(x, ...))
+  xcs_df <- data.frame()
+  for(i in match_ids){
+    tmp <- calc_xcs(i)
+    xcs_df <- rbind(xcs_df, tmp)
+    if(pb$finished != TRUE) {
+      pb$tick(tokens = list(what= glue::glue('match {i}')))
+    }
+  }
 
-  do.call(rbind, understat_xCS) %>%
+  pb$terminate()
+
+  xcs_df %>%
     group_by(defending_team) %>%
     summarise(xCS = sum(xCS), matches = n())
 

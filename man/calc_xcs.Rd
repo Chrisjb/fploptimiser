@@ -4,7 +4,7 @@
 \alias{calc_xcs}
 \title{utility function to fetch xCS data for teams}
 \usage{
-calc_xcs(match_id, verbose = TRUE, details = FALSE)
+calc_xcs(match_id, details = FALSE)
 }
 \description{
 utility function to fetch xCS data for teams

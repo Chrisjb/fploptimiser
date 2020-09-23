@@ -28,7 +28,9 @@ fetch_player_data <- local({
     player_details <- fpl_api$elements
     position_names <- fpl_api$element_types
     teams <- fpl_api$teams %>%
-      select(-code, -form)
+      select(-code, -form) %>%
+      arrange(name) %>%
+      mutate(team_id = 1:20)
 
     df <- player_details %>% left_join(position_names, by = c('element_type' = 'id'))  %>%
       left_join(teams, by = c('team' = 'id')) %>%
@@ -37,8 +39,8 @@ fetch_player_data <- local({
              vapm = if_else(vapm < 0, 0, vapm),
              total_points = as.numeric(total_points),
              games = round(total_points / points_per_game,0),
-             games = if_else(is.na(games), 0, games))
-
+             games = if_else(is.na(games), 0, games)) %>%
+      arrange(name)
     memory[[valueName]] <<- df
     return(df)
   }

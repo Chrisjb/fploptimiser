@@ -1,6 +1,6 @@
 #' utility function to fetch data for players of a given team from understat
 
-fetch_understat_data <- function(team = 'Arsenal', year = '2019') {
+fetch_understat_data <- function(team = 'Arsenal', year = '2020') {
   understat <- xml2::read_html(glue::glue('https://understat.com/team/{team}/{year}'))
 
 
