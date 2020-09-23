@@ -113,12 +113,12 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
 
 
   # Create vector to constrain by max number of players allowed per team
-  team_constraint = unlist(lapply(unique(df$team_code), function(x, df){
-    ifelse(df$team_code==x, 1, 0)
+  team_constraint = unlist(lapply(unique(df$team_id), function(x, df){
+    ifelse(df$team_id==x, 1, 0)
   }, df=df))
 
   # next we need the constraint directions
-  const_dir <- c("=", "=", "=", "=", rep("<=", length(unique(df$team_code)) + 1))
+  const_dir <- c("=", "=", "=", "=", rep("<=", length(unique(df$team_id)) + 1))
 
   if(objective == 'points') {
     obj_fun <- df$total_points
@@ -132,10 +132,10 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
   # Put the complete matrix together
   const_mat = matrix(c(df$Goalkeeper, df$Defender, df$Midfielder, df$Forward,
                        df$now_cost, team_constraint),
-                     nrow=(5 + length(unique(df$team_code))),
+                     nrow=(5 + length(unique(df$team_id))),
                      byrow=TRUE)
 
-  const_rhs = c(n_goalkeepers, n_defenders, n_midfield, n_forwards, max_cost, rep(3, length(unique(df$team_code))))
+  const_rhs = c(n_goalkeepers, n_defenders, n_midfield, n_forwards, max_cost, rep(3, length(unique(df$team_id))))
 
   # And solve the linear system
   x = lpSolve::lp("max", obj_fun, const_mat, const_dir, const_rhs, all.bin=TRUE, all.int=TRUE)
