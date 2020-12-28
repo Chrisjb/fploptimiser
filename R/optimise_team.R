@@ -76,8 +76,8 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
 
 
   } else{
-    if(!is.data.frame(df)){
-      stop('df should be a data.frame if specified. Else set to df = FALSE.')
+    if(!is.data.frame(custom_df)){
+      stop('custom_df should be a data.frame if specified. Else set to df = FALSE.')
     }
     df <- custom_df
   }
