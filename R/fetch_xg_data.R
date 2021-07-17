@@ -247,7 +247,7 @@ understat_xCS <- understat_xCS %>%
 
 
 # adjust points, points per game and vapm for xA/xg
-expected_pts <- fpl_dat7 %>%
+expected_pts <- fpl_dat9 %>%
   select(-team_name) %>%
   left_join(understat_xCS, by = c('team_id' = 'number')) %>%
   left_join(teams, by = c('team_id' = 'number'))%>%
