@@ -242,15 +242,13 @@ if(check_data==TRUE){
 understat_xCS <- fetch_understat_xCS(year=year)
 
 understat_xCS <- understat_xCS %>%
-  left_join(teams, by = c('defending_team' = 'name')) %>%
   mutate(xCS_per_game = xCS / matches)
 
 
 # adjust points, points per game and vapm for xA/xg
 expected_pts <- fpl_dat9 %>%
-  select(-team_name) %>%
-  left_join(understat_xCS, by = c('team_id' = 'number')) %>%
-  left_join(teams, by = c('team_id' = 'number'))%>%
+  select(-team_name, -matches(c('\\.x','\\.y'))) %>%
+  left_join(understat_xCS, by = c('team' = 'defending_team')) %>%
   mutate(goal_pts = case_when(element_type == 1 ~ 6,
                               element_type == 2 ~ 6,
                               element_type == 3 ~ 5,
@@ -266,7 +264,7 @@ expected_pts <- fpl_dat9 %>%
          points_per_game = total_points/ understat_games,
          vapm = (points_per_game - 2) / now_cost) %>%
   rename(games = understat_games) %>%
-  select(id, full_name, web_name, form, now_cost, team_id, team_name=name,singular_name,minutes, goals=goals_scored, assists, clean_sheets,
+  select(id, full_name, web_name, form, now_cost, team_id, team_name=team,singular_name,minutes, goals=goals_scored, assists, clean_sheets,
          goals_conceded, own_goals, penalties_saved, penalties_missed, yellow_cards, red_cards, saves,bonus,bps, influence,
          creativity, threat, ict_index, vapm, games, understat_minutes, understat_goals, understat_assists, understat_shots,
          understat_key_passes, xG, xA, xCS, xCS_per_game, npg, npxG, points_per_game, total_points, matches)
