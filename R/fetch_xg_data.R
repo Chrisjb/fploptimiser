@@ -172,7 +172,7 @@ found5 <- fpl_dat6_unmatched %>%
 
 found5_1 <- fpl_dat6_unmatched %>%
   select(-understat_games, -understat_minutes, -understat_goals, -xG, -xA, -understat_assists, -understat_shots, -understat_key_passes, -npg, -npxG, -understat_yellow,-understat_red, -team_code) %>%
-  mutate(second_name2 = str_to_upper(second_name)) %>%
+  mutate(second_name2 = stringr::str_to_upper(second_name)) %>%
   left_join(understat_surnames, by=c('second_name2' = 'understat_surname', 'team' = 'team_name'))  %>%
   select(-second_name2) %>%
   filter(!is.na(xG))
