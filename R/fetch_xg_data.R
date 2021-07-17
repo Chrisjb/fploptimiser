@@ -63,12 +63,12 @@ for(i in 1:nrow(teams)) {
 
 # team IDs may not match if comparing two different seasons so match on name instead... this list may need updating in later seasons
 team_names_common <- data.frame(fpl_name =unique(fpl_dat$name)) %>%
-  mutate(understat_name = str_replace_all(fpl_name, ' ','_'),
-         understat_name = str_replace(understat_name, 'Man_','Manchester_'),
-         understat_name = str_replace(understat_name, '_Utd','_United'),
-         understat_name =str_replace(understat_name, '(Newcastle|Sheffield)','\\1_United'),
-         understat_name =if_else(understat_name== 'Spurs','Tottenham',understat_name),
-         understat_name =if_else(understat_name== 'Wolves','Wolverhampton_Wanderers',understat_name)
+  mutate(understat_name = stringr::str_replace_all(fpl_name, ' ','_'),
+         understat_name = stringr::str_replace(understat_name, 'Man_','Manchester_'),
+         understat_name = stringr::str_replace(understat_name, '_Utd','_United'),
+         understat_name =stringr::str_replace(understat_name, '(Newcastle|Sheffield)','\\1_United'),
+         understat_name =dplyr::if_else(understat_name== 'Spurs','Tottenham',understat_name),
+         understat_name =dplyr::if_else(understat_name== 'Wolves','Wolverhampton_Wanderers',understat_name)
          )
 
 
@@ -192,7 +192,7 @@ fpl_dat7_unmatched  <- fpl_dat7 %>%
 
 found6 <- fpl_dat7_unmatched %>%
   select(-understat_games, -understat_minutes, -understat_goals, -xG, -xA, -understat_assists, -understat_shots, -understat_key_passes, -npg, -npxG, -team_code) %>%
-  left_join(mutate(understat, player_name= str_replace_all(player_name, '-',' ')), by=c('full_name' = 'player_name', 'team' = 'team_name'))  %>%
+  left_join(mutate(understat, player_name= stringr::str_replace_all(player_name, '-',' ')), by=c('full_name' = 'player_name', 'team' = 'team_name'))  %>%
   filter(!is.na(xG))
 
 
