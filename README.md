@@ -71,3 +71,63 @@ df_xp <- fetch_xg_data()
 
 result_xp <- optimise_team(objective = 'ppg', bank = 1000, bench_value = 170, gk = 1, def = 3, mid = 4, fwd = 3, min_games = 3, custom_df = df_xp)
 ```
+
+
+
+
+### Getting fixtures
+
+We can get and visualise fixtures for the next n games using:
+
+```r
+fixtures <- fetch_fixtures(n = 10)
+```
+
+
+|time       | gw| team_id|team_name   |ha |played |opponent       |difficulty | mean_difficulty| median_difficulty|
+|:----------|--:|-------:|:-----------|:--|:------|:--------------|:----------|---------------:|-----------------:|
+|2021-08-13 |  1|       1|Arsenal     |a  |FALSE  |Brentford      |2          |             2.8|               2.5|
+|2021-08-14 |  1|       5|Burnley     |h  |FALSE  |Brighton       |2          |             2.9|               3.0|
+|2021-08-14 |  1|       4|Brighton    |a  |FALSE  |Burnley        |2          |             2.9|               2.5|
+|2021-08-14 |  1|       6|Chelsea     |h  |FALSE  |Crystal Palace |2          |             2.8|               2.0|
+|2021-08-14 |  1|       8|Everton     |h  |FALSE  |Southampton    |2          |             2.7|               3.0|
+|2021-08-14 |  1|       9|Leicester   |h  |FALSE  |Wolves         |2          |             2.8|               2.5|
+|2021-08-14 |  1|      18|Watford     |h  |FALSE  |Aston Villa    |2          |             2.7|               2.5|
+|2021-08-14 |  1|       2|Aston Villa |a  |FALSE  |Watford        |2          |             3.1|               3.5|
+|2021-08-14 |  1|      11|Liverpool   |a  |FALSE  |Norwich        |2          |             2.7|               2.0|
+|2021-08-15 |  1|      19|West Ham    |a  |FALSE  |Newcastle      |2          |             2.8|               3.0|
+
+
+
+We can visualise the resulting fixture list:
+
+
+```r
+plot(fixtures)
+```
+![](man/figures/fixture_difficulty.png)
+
+
+
+
+It may be useful to know teams which have relatively uncorrelated fixtures (good for rotating substitutes):
+
+```r
+fixtures <- fixture_rotation(fixtures)
+```
+
+
+|team1          |team2          |       cor|
+|:--------------|:--------------|---------:|
+|Liverpool      |Crystal Palace | 0.6755111|
+|Crystal Palace |Leeds          | 0.6755111|
+|Chelsea        |Crystal Palace | 0.6805447|
+|Chelsea        |Newcastle      | 0.6998542|
+|Chelsea        |Everton        | 0.7013344|
+|Everton        |Liverpool      | 0.7114582|
+|Everton        |Leeds          | 0.7114582|
+|Burnley        |Chelsea        | 0.7356619|
+|Brighton       |Newcastle      | 0.7419985|
+|Aston Villa    |Liverpool      | 0.7419985|
+
+
