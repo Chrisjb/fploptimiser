@@ -142,6 +142,9 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
 
   result <- arrange(df[which(x$solution==1),], desc(Goalkeeper), desc(Defender), desc(Midfielder), desc(Forward))
 
+
+  result <- result %>%
+    select(web_name,singular_name, team_name=name, now_cost, total_points, games, minutes, goals_scored, assists, clean_sheets, goals_conceded)
   return(result)
 
 
