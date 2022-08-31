@@ -18,7 +18,7 @@
 #'
 #'
 
-fetch_xg_data <- function(year = 2021, check_data=FALSE){
+fetch_xg_data <- function(year = 2022, check_data=FALSE){
 
 suppressWarnings(
   epl_teams_raw <- xml2::read_html(glue::glue('https://understat.com/league/EPL/{year}')) %>%
