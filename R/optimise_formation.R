@@ -1,4 +1,4 @@
-#' Optimise team
+#' Fetch Player Data From The FPL API
 #'
 #' Solves the optimisation problem for a FPL team given a budget constraint, amount of players, and objective function.
 #'
