@@ -79,7 +79,8 @@ fetch_fixtures <- function(n) {
 
   class(next_n) <- c('fpl_fixtures',class(next_n))
 
-  next_n
+  next_n %>%
+    arrange(time, team_name)
 
 
 }
