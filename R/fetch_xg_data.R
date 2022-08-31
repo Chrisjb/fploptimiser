@@ -274,7 +274,7 @@ expected_pts <- fpl_dat9 %>%
 
   if(reduce==TRUE){
     expected_pts <- expected_pts %>%
-      select(id, web_name, team_name, singular_name, total_points, xG, xA, xCS, understat_key_passes, minutes, matches, goals, assists, clean_sheets ) %>%
+      select(id, web_name, team_name, singular_name, total_points, xG, xA, xCS, understat_key_passes, minutes, games, goals, assists, clean_sheets ) %>%
       arrange(desc(total_points))
   }
 
