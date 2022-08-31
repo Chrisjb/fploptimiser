@@ -8,7 +8,7 @@
 #' @rdname pipe
 #' @export
 #'
-#' @param gameweek_range numeric vector of the gameweeks to include in the data. This is not available pre-season and defaults to FALSE including all historic data for the past season.
+#' @param reduce If TRUE, returns only select columns from the API for nicer display. If FALSE, will return all columns from the FPL API.
 #'
 #' @return a data.frame of the full player data and history.
 #'
@@ -16,14 +16,7 @@
 #' df <- fetch_player_data()
 #'
 
-fetch_player_data <- local({
-  memory <- list()
-  function(gameweek_range = 1:2, force_refresh = F) {
-    valueName <- paste0(gameweek_range, collapse=',')
-    if(!is.null(memory[[valueName]]) & force_refresh == F){
-      message('Retrieving player data already stored in memory...')
-      return(memory[[valueName]])
-    }
+fetch_player_data <- function(reduce=TRUE) {
     fpl_api <-  jsonlite::fromJSON("https://fantasy.premierleague.com/api/bootstrap-static/")
     player_details <- fpl_api$elements
     position_names <- fpl_api$element_types
@@ -41,7 +34,12 @@ fetch_player_data <- local({
              games = round(total_points / points_per_game,0),
              games = if_else(is.na(games), 0, games)) %>%
       arrange(name)
-    memory[[valueName]] <<- df
+
+    if(reduce == TRUE){
+      df <- df %>%
+        select(web_name,singular_name, team_name=name, now_cost, total_points, games, minutes, goals_scored, assists, clean_sheets, goals_conceded) %>%
+        tibble()
+    }
     return(df)
+
   }
-})

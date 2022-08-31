@@ -1,4 +1,4 @@
-#' Fetch Player Data From The FPL API
+#' Optimise team
 #'
 #' Solves the optimisation problem for a FPL team given a budget constraint, amount of players, and objective function.
 #'
@@ -9,7 +9,6 @@
 #' @param def number of defenders to pick in our optimal solution
 #' @param mid number of midfielders to pick in our optimal solution
 #' @param fwd number of forwards to pick in our optimal solution
-#' @param gameweek_range numeric vector of the gameweeks to include in the data. This is not available pre-season and defaults to FALSE including all historic data for the past season.
 #' @param min_games the minimum number of games a player must have played to be considered for selection. This should be set when the objective function is 'ppg' so that players with high points per game but with relatively few games played are avoided.
 #' @param custom_df defaults to FALSE. If you want to make adjustments to the player data before optimising (eg. you want to exclude certain players from consideration) you can use the fetch_player_data() function and update the resulting dataset yourself. This dataset can be passed as the custom_df parameter.
 #' @param expected_points_adjust defaults to FALSE. Should we adjust points and points per game for the xA / xG? Data comes from understat.
@@ -48,13 +47,11 @@
 #'
 #' @export
 
-optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, gk =1, def = 3, mid = 4, fwd = 3, gameweek_range = FALSE, min_games = 1, custom_df = F, expected_points_adjust = F, ...) {
+optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, gk =1, def = 3, mid = 4, fwd = 3, min_games = 1, custom_df = F, expected_points_adjust = F, ...) {
 
   # checks
   if(!objective %in% c('points', 'ppg', 'vapm')){
     stop('objective must be one of: "points", "ppg" or "vapm"')
-  } else if(gameweek_range != F) {
-    warning('setting gameweek_range currently has no effect as gameweek history is unavailable for this season.')
   } else if(bank < 800) {
     warning('Are you sure that you have entered the bank parameter correctly? For 100.0m you should enter bank = 1000')
   } else if(!gk %in% c(0:2)){
@@ -72,7 +69,7 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
   }
 
   if(is.logical(custom_df)) {
-    df <- fetch_player_data(gameweek_range, ...)
+    df <- fetch_player_data(reduce = FALSE)
 
 
   } else{
@@ -95,6 +92,8 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
 
   df <- df %>%
     filter(games >= min_games)
+
+  df$total_points[is.na(df$total_points)] <- 0
 
 
   # create the constraints
@@ -141,6 +140,7 @@ optimise_team <- function(objective = 'points', bank = 1000, bench_value = 170, 
   x = lpSolve::lp("max", obj_fun, const_mat, const_dir, const_rhs, all.bin=TRUE, all.int=TRUE)
 
   result <- arrange(df[which(x$solution==1),], desc(Goalkeeper), desc(Defender), desc(Midfielder), desc(Forward))
+
 
   return(result)
 

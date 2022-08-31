@@ -2,7 +2,9 @@
 #'
 #' Scrapes xA and xG data for a given season from understat
 #'
-#' @param year the season for which we want to scrape data from understat. Currently covers only teams who were in the premier league in either 2018/19 or 2019/20
+#' @param year the season for which we want to scrape data from understat.
+#' @param reduce If TRUE, returns only select columns from the API for nicer display. If FALSE, will return all columns from the FPL API.
+#' @param check_data used for debugging only
 #'
 #' @import jsonlite
 #' @import tidyr
@@ -14,11 +16,11 @@
 #' @return a data.frame of the full player xg data for the season.
 #'
 #' @examples
-#' df <- fetch_xg_data(year = 2020)
+#' df <- fetch_xg_data(year = 2022)
 #'
 #'
 
-fetch_xg_data <- function(year = 2021, check_data=FALSE){
+fetch_xg_data <- function(year = 2022, reduce=TRUE, check_data=FALSE){
 
 suppressWarnings(
   epl_teams_raw <- xml2::read_html(glue::glue('https://understat.com/league/EPL/{year}')) %>%
@@ -29,7 +31,7 @@ suppressWarnings(
 
 
   # official fpl player data/team data
-  fpl_dat <- fetch_player_data()
+  fpl_dat <- fetch_player_data(reduce=FALSE)
 
 
 
@@ -267,11 +269,18 @@ expected_pts <- fpl_dat9 %>%
   select(id, full_name, web_name, form, now_cost, team_id, team_name=team,singular_name,minutes, goals=goals_scored, assists, clean_sheets,
          goals_conceded, own_goals, penalties_saved, penalties_missed, yellow_cards, red_cards, saves,bonus,bps, influence,
          creativity, threat, ict_index, vapm, games, understat_minutes, understat_goals, understat_assists, understat_shots,
-         understat_key_passes, xG, xA, xCS, xCS_per_game, npg, npxG, points_per_game, total_points, matches)
+         understat_key_passes, xG, xA, xCS, xCS_per_game, npg, npxG, points_per_game, total_points, matches) %>%
+  tibble()
+
+  if(reduce==TRUE){
+    expected_pts <- expected_pts %>%
+      select(id, web_name, team_name, singular_name, total_points, xG, xA, xCS, understat_key_passes, minutes, games, goals, assists, clean_sheets ) %>%
+      arrange(desc(total_points))
+  }
 
 
 
-return(expected_pts)
+  return(expected_pts)
 
 }
 
