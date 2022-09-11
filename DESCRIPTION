@@ -8,5 +8,5 @@ Description: Contains functions to fetch player data and optimise a team selecti
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Imports: ggplot2, lpSolve, magrittr, dplyr, jsonlite, glue, tidyr, rvest, stringi, stringr, xml2, progress

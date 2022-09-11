@@ -4,10 +4,14 @@
 \alias{fetch_xg_data}
 \title{Fetch xG and xA data from understat}
 \usage{
-fetch_xg_data(year = 2021, check_data = FALSE)
+fetch_xg_data(year = 2022, reduce = FALSE, check_data = FALSE)
 }
 \arguments{
-\item{year}{the season for which we want to scrape data from understat. Currently covers only teams who were in the premier league in either 2018/19 or 2019/20}
+\item{year}{the season for which we want to scrape data from understat.}
+
+\item{reduce}{If TRUE, returns only select columns from the API for nicer display. If FALSE, will return all columns from the FPL API.}
+
+\item{check_data}{used for debugging only}
 }
 \value{
 a data.frame of the full player xg data for the season.
@@ -16,7 +20,7 @@ a data.frame of the full player xg data for the season.
 Scrapes xA and xG data for a given season from understat
 }
 \examples{
-df <- fetch_xg_data(year = 2020)
+df <- fetch_xg_data(year = 2022)
 
 
 }
