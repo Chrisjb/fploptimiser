@@ -6,12 +6,12 @@
 \alias{fetch_xCS}
 \title{Fetch Player Data From The FPL API}
 \usage{
-fetch_player_data(gameweek_range = 1:2, force_refresh = F)
+fetch_player_data(reduce = TRUE)
 
 fetch_xCS(year = 2020, match_id = "all", ungroup = F, ...)
 }
 \arguments{
-\item{gameweek_range}{numeric vector of the gameweeks to include in the data. This is not available pre-season and defaults to FALSE including all historic data for the past season.}
+\item{reduce}{If TRUE, returns only select columns from the API for nicer display. If FALSE, will return all columns from the FPL API.}
 
 \item{year}{Season we want to download the xCS data for. For 2020/21 enter 2021.}
 
