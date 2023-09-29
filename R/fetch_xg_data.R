@@ -293,6 +293,7 @@ fetch_xg_data <- function(year = 2023, reduce=FALSE, check_data=FALSE){
            goals_conceded, own_goals, penalties_saved, penalties_missed, yellow_cards, red_cards, saves,bonus,bps, influence,
            creativity, threat, ict_index, vapm, games, understat_minutes, understat_goals, understat_assists, understat_shots,
            understat_key_passes, xG, xA, xCS, xCS_per_game, npg, npxG, points_per_game, total_points, matches) %>%
+    filter(!is.na(total_points)) %>%
     tibble()
 
     if(reduce==TRUE){
