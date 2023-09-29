@@ -16,11 +16,11 @@
 #' @return a data.frame of the full player xg data for the season.
 #'
 #' @examples
-#' df <- fetch_xg_data(year = 2022)
+#' df <- fetch_xg_data(year = 2023)
 #'
 #'
 
-fetch_xg_data <- function(year = 2022, reduce=FALSE, check_data=FALSE){
+fetch_xg_data <- function(year = 2023, reduce=FALSE, check_data=FALSE){
 
 suppressWarnings(
   epl_teams_raw <- xml2::read_html(glue::glue('https://understat.com/league/EPL/{year}')) %>%
