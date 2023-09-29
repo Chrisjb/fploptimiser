@@ -252,7 +252,7 @@ fetch_xg_data <- function(year = 2023, reduce=FALSE, check_data=FALSE){
 
 
   if(check_data==TRUE){
-    if(nrow(fpl_dat9_unmatched) >0){
+    if(nrow(fpl_dat10_unmatched) >0){
       message(glue::glue('{nrow(fpl_dat9_unmatched)} unmatched players: [{glue::glue_collapse(fpl_dat9_unmatched$web_name,", ")}]. Please raise an issue on Github.'))
     } else {
       message('0 unmatched players.')
@@ -271,7 +271,7 @@ fetch_xg_data <- function(year = 2023, reduce=FALSE, check_data=FALSE){
 
 
   # adjust points, points per game and vapm for xA/xg
-  expected_pts <- fpl_dat9 %>%
+  expected_pts <- fpl_dat10 %>%
     select(-team_name, -matches(c('\\.x','\\.y'))) %>%
     left_join(understat_xCS, by = c('team' = 'defending_team')) %>%
     mutate(goal_pts = case_when(element_type == 1 ~ 6,
