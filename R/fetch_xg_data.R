@@ -231,7 +231,7 @@ fetch_xg_data <- function(year = 2023, reduce=FALSE, check_data=FALSE){
   # try and match on last characters of web_name
   found8 <- fpl_dat9_unmatched %>%
     select(-understat_games, -understat_minutes, -understat_goals, -xG, -xA, -understat_assists, -understat_shots, -understat_key_passes, -npg, -npxG, -team_code) %>%
-    mutate(web_name2 = str_to_upper(str_extract(web_name, '(?<=\\.).+'))) %>%
+    mutate(web_name2 = stringr::str_to_upper(str_extract(web_name, '(?<=\\.).+'))) %>%
     left_join(understat_surnames, by=c('web_name2' = 'understat_surname')) %>%
     filter(!is.na(xG)) %>%
     select(-web_name2)
