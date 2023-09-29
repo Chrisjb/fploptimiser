@@ -19,7 +19,7 @@
 #'
 #' @export
 
-fetch_xCS <- function(year = 2020, match_id = 'all', ungroup = F, ...){
+fetch_xCS <- function(year = 2023, match_id = 'all', ungroup = F, ...){
   # get IDs of each game played
   understat_matches <- xml2::read_html(paste0('https://understat.com/league/EPL/',year))
 
