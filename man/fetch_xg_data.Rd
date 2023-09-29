@@ -4,7 +4,7 @@
 \alias{fetch_xg_data}
 \title{Fetch xG and xA data from understat}
 \usage{
-fetch_xg_data(year = 2022, reduce = FALSE, check_data = FALSE)
+fetch_xg_data(year = 2023, reduce = FALSE, check_data = FALSE)
 }
 \arguments{
 \item{year}{the season for which we want to scrape data from understat.}
@@ -20,7 +20,7 @@ a data.frame of the full player xg data for the season.
 Scrapes xA and xG data for a given season from understat
 }
 \examples{
-df <- fetch_xg_data(year = 2022)
+df <- fetch_xg_data(year = 2023)
 
 
 }

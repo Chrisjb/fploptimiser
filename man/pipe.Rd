@@ -8,7 +8,7 @@
 \usage{
 fetch_player_data(reduce = TRUE)
 
-fetch_xCS(year = 2020, match_id = "all", ungroup = F, ...)
+fetch_xCS(year = 2023, match_id = "all", ungroup = F, ...)
 }
 \arguments{
 \item{reduce}{If TRUE, returns only select columns from the API for nicer display. If FALSE, will return all columns from the FPL API.}
